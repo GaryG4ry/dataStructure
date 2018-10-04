@@ -20,6 +20,7 @@ class Node(object):
         else:  # if the root is not exist do:
             self.data = data
 
+    # 递归操作
     def printTree(self):
         if self.left:
             self.left.printTree()
@@ -27,9 +28,10 @@ class Node(object):
         if self.right:
             self.right.printTree()
 
+    # 递归
     def inorderTraversal(self, root):  # in-order traversal    left->root->right
         res = []
-        if root:
+        if root:    # once the node is not None
             res = self.inorderTraversal(root.left)
             res.append(root.data)
             res = res + self.inorderTraversal(root.right)
@@ -60,4 +62,4 @@ if __name__ == '__main__':
     root.insert(19)
     root.insert(31)
     root.insert(42)
-    print(root.postorderTraversal(root))
+    print(root.printTree())
