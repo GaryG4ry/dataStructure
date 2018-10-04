@@ -27,6 +27,15 @@ class Node(object):
         if self.right:
             self.right.printTree()
 
+    def inorderTraversal(self, root):   # in-order traversal
+        res = []
+        if root:
+            res = self.inorderTraversal(root.left)
+            res.append(root.data)
+            res = res + self.inorderTraversal(root.right)
+        return res
+
+
 if __name__ == '__main__':
     root = Node(10)
     root.insert(11)
@@ -34,4 +43,4 @@ if __name__ == '__main__':
     root.insert(8)
     root.insert(54)
     root.insert(1)
-    root.printTree()
+    print(root.inorderTraversal(root))
