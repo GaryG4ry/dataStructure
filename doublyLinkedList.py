@@ -45,7 +45,7 @@ class DoublyLinkedList:
         node = self.head
         while node:
             res.append(node.getData())
-            node = node.next
+            node = node.getNext()
         return res
 
     def remove(self, dataval):
