@@ -31,6 +31,7 @@ class DoublyLinkedList:
     def size(self):
         return self.length
 
+    # add element to the beginning of list
     def add(self, dataval):
         new_node = Node(dataval)
         new_node.setNext(self.head)
@@ -47,9 +48,30 @@ class DoublyLinkedList:
             node = node.next
         return res
 
+    def remove(self, dataval):
+        node = self.head
+        while node:
+            if node.getData() == dataval:
+                next = node.getNext()
+                prev = node.getPrev()
+                if next:
+                    next.setPrev(prev)
+                if prev:
+                    prev.setNext(next)
+                else:
+                    self.head = node
+                self.length -= 1
+                return True
+            else:
+                node = node.getNext()
+        return False
+
 bl = DoublyLinkedList(0)
 bl.add(1)
 bl.add(2)
+bl.add(3)
+bl.remove(2)
+bl.add(4)
 print(bl.printList())
 
 
