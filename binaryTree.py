@@ -1,5 +1,5 @@
 # create a root
-class Node(object):
+class BinaryTree(object):
     def __init__(self, data):
         self.left = None
         self.right = None
@@ -9,12 +9,12 @@ class Node(object):
         if self.data:  # if the root exist
             if self.data > data:  # inset data smaller than the root, we insert it into the left side
                 if None == self.left:  # if the left side is not exist
-                    self.left = Node(data)
+                    self.left = BinaryTree(data)
                 else:  # if the left side is exist
                     self.left.insert(data)  # insert the data to the left data
             elif self.data < data:  # same as insert data to the left side
                 if None == self.right:
-                    self.right = Node(data)
+                    self.right = BinaryTree(data)
                 else:
                     self.right.insert(data)
         else:  # if the root is not exist do:
@@ -55,7 +55,7 @@ class Node(object):
 
 
 if __name__ == '__main__':
-    root = Node(27)
+    root = BinaryTree(27)
     root.insert(14)
     root.insert(35)
     root.insert(10)

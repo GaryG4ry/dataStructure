@@ -144,7 +144,7 @@ class LinkList(object):
         node = self.head
         nlist = ''
         while node:
-            nlist += str(node.data) + ''
+            nlist += str(node.data) + '\t'
             node = node._next
         return nlist
 
@@ -160,3 +160,17 @@ class LinkList(object):
 
     def __len__(self):
         return self.length
+
+
+if __name__ == '__main__':
+    l = LinkList()
+    l.append(123)
+    l.append(Node(22))
+    l.append(0)
+    l.append(3)
+    l.delete(0)
+    print(l.getIndex(3))
+    print(l.getItem(0))
+    l.insert(0, 100)
+    l.update(0, 888)
+    print(l)
